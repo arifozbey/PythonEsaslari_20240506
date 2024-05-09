@@ -15103,18 +15103,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-
-<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Tekrar-i%C3%A7in-Sorular-ve-Cevaplar">Tekrar i&#231;in Sorular ve Cevaplar<a class="anchor-link" href="#Tekrar-i%C3%A7in-Sorular-ve-Cevaplar">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15126,6 +15115,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Bir metin içerisindeki belirttiğimiz harfi saydıran bir kod parçası yazalım.</span>
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="n">metin</span> <span class="o">=</span> <span class="s2">&quot;Python programlama dili, dünyada eğitim amacıyla en çok kullanılan programlama dillerinden biridir.&quot;</span>
+<span class="n">harf</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="c1">#</span>
+<span class="n">metin</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">harf</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="c1">#count fonksiyonnu containerlarda kullanılan bir fonksiyondur. Belirtilen elemandan kaç tane olduğu getirir.</span>
 </pre></div>
 
      </div>
@@ -15133,7 +15127,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>13</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15145,6 +15162,28 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Belirtilen sayılardan 3&#39;e (istenen sayıya) tam bölünenlerin adedini, toplamını ve sayıların kendisini döndüren bir fonksiyon yazalım.</span>
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="c1"># varsayılan değer almayan parametreler</span>
+<span class="c1"># varsayılan değer alan parametreler</span>
+<span class="c1"># sınırsız sayıda değer alan parametreler şekilden tanımlayabiliriz</span>
+<span class="k">def</span> <span class="nf">fnk_topla</span><span class="p">(</span><span class="n">bolen</span> <span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="o">*</span><span class="n">sayilar</span><span class="p">):</span>
+    <span class="n">sayilar</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sayilar</span><span class="p">)</span>
+
+    <span class="c1">#1. list comprehension</span>
+    <span class="n">tamBolnenler</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sayilar</span> <span class="k">if</span> <span class="n">s</span> <span class="o">%</span> <span class="n">bolen</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#filter alternetifidir.</span>
+
+    <span class="c1">#2.filter ile</span>
+    <span class="n">tamBolnenler</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">%</span><span class="k">bolen</span>==0,sayilar)) #fonksiyonu True/False döndormelidir.
+
+    <span class="c1">#</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;toplam&quot;</span><span class="p">:</span><span class="nb">sum</span><span class="p">(</span><span class="n">tamBolnenler</span><span class="p">),</span>
+            <span class="s2">&quot;adet&quot;</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">tamBolnenler</span><span class="p">),</span>
+            <span class="s2">&quot;liste&quot;</span><span class="p">:</span><span class="n">tamBolnenler</span>
+        <span class="p">}</span>
+
+<span class="c1">#-------------------</span>
+<span class="n">fnk_topla</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15152,7 +15191,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;toplam&#39;: 60, &#39;adet&#39;: 5, &#39;liste&#39;: [4, 8, 12, 16, 20]}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15166,6 +15228,31 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="sd">    hata kontrollerini de yapalım.</span>
 <span class="sd">    Dairenin Alanı = pi * r^2</span>
 <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="c1">#type hinting. fonksiyonda tip bilgisi vermek kullandık.</span>
+
+<span class="k">def</span> <span class="nf">daire_alan</span><span class="p">(</span><span class="n">r</span><span class="p">:</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="nb">float</span><span class="p">])</span><span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,(</span><span class="nb">int</span><span class="p">,</span><span class="nb">float</span><span class="p">))):</span> <span class="c1">#type(r)!=float:</span>
+        <span class="k">return</span> <span class="s2">&quot;Yarıçap sayısal bir değer olmalıdır.&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Yarıçap negatif olamaz.&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1">#-------------------------------</span>
+<span class="n">daire_alan</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="n">alan</span> <span class="o">=</span> <span class="n">daire_alan</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">alan</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#numeric</span>
+
+<span class="c1">#</span>
+<span class="nb">format</span><span class="p">(</span><span class="n">alan</span><span class="p">,</span><span class="s2">&quot;.2f&quot;</span><span class="p">)</span> <span class="c1">#string</span>
+<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alan</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1">#string</span>
 </pre></div>
 
      </div>
@@ -15173,7 +15260,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;78.54&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15185,6 +15295,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Verilen metni alfabe dışındaki karekterlerden temizleyelim. Metni düz ve tersten veren bir fonksiyon yazalım</span>
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">fnk_temizle</span><span class="p">(</span><span class="n">metin</span><span class="p">):</span>
+    <span class="c1">#1. list comprehension</span>
+    <span class="n">temizMetin</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metin</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">or</span> <span class="n">m</span><span class="o">.</span><span class="n">isspace</span><span class="p">()]</span>
+
+    <span class="c1">#2. filter ile</span>
+    <span class="n">temizMetin</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span><span class="n">m</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">or</span> <span class="n">m</span><span class="o">.</span><span class="n">isspace</span><span class="p">(),</span><span class="n">metin</span><span class="p">))</span>
+
+    <span class="c1">#------------------</span>
+    <span class="n">temizMetin</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temizMetin</span><span class="p">)</span> <span class="c1">#aralarına &quot;&quot; ekleyerek birleştirir. listenin tüm elemanları yanyana gelir. metin oluşuyor.</span>
+
+    <span class="k">return</span> <span class="n">temizMetin</span><span class="p">,</span> <span class="n">temizMetin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#tersten yazdırmak için [::-1] kullanılır.</span>
+
+
+<span class="c1">#----------------------------</span>
+<span class="n">metin</span> <span class="o">=</span> <span class="s2">&quot;sn2a4!l@ub?ma&quot;</span>
+
+<span class="n">fnk_temizle</span><span class="p">(</span><span class="n">metin</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15192,7 +15319,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(&#39;snalubma&#39;, &#39;ambulans&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15202,8 +15352,27 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># soru5:</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Dışarıdan girilen tarih.</span>
+<span class="sd">    Dışarıdan girilen tarih. hangi güne ait.</span>
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">#from datetime import datetime #datetime paketi içerisinden datetime modulunu import ettik.</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="c1">#datetime paketi import edildi. datetime modulu kullanılmak istenirse datetime.datetime şeklinde kullanılır.</span>
+<span class="c1">#paketin içerisindeki __init__.py modulnu import ediyor.</span>
+
+<span class="c1">#---</span>
+<span class="n">str_tarih</span> <span class="o">=</span> <span class="s2">&quot;08/05/2024&quot;</span> <span class="c1">#input(&quot;Tarih giriniz (GG/AA/YYYY): &quot;)</span>
+
+<span class="c1"># \ ile anlamlı kod parçası tamamlanmadı alttan devam ediyoruz diyoruz.</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> \
+        <span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">str_tarih</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#veya () ile kodları birleştirebiliriz.</span>
+<span class="p">(</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span>
+        <span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">str_tarih</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15211,7 +15380,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Wednesday&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15232,7 +15424,33 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="sd">    ord(&quot;z&quot;) #122</span>
 <span class="sd">    ord(&quot;A&quot;) #65</span>
 <span class="sd">    ord(&quot;Z&quot;) #90</span>
+
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">#alfabedeki harfler</span>
+<span class="c1">#print(&quot;&quot;.join([chr(s).lower() for s in list(range(65,91))]))</span>
+
+<span class="c1">#-------------------</span>
+<span class="k">def</span> <span class="nf">fnk_sezar</span><span class="p">(</span><span class="n">metin</span><span class="p">,</span> <span class="n">anahtar</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sifrelensinMi</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">sonuc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="c1">#1.</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metin</span><span class="p">:</span>
+        <span class="n">sonuc</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="n">anahtar</span><span class="p">)</span> <span class="k">if</span> <span class="n">sifrelensinMi</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">-</span><span class="n">anahtar</span><span class="p">)</span>
+    
+    <span class="c1">#2.</span>
+    <span class="n">sonuc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="n">anahtar</span><span class="p">)</span> <span class="k">if</span> <span class="n">sifrelensinMi</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">-</span><span class="n">anahtar</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metin</span><span class="p">])</span>
+
+    <span class="c1">#3.</span>
+    <span class="n">sonuc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="n">anahtar</span><span class="p">)</span> <span class="k">if</span> <span class="n">sifrelensinMi</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">-</span><span class="n">anahtar</span><span class="p">),</span><span class="n">metin</span><span class="p">))</span>
+
+
+    <span class="k">return</span> <span class="n">sonuc</span>
+
+<span class="c1">#-------------------</span>
+<span class="n">fnk_sezar</span><span class="p">(</span><span class="s2">&quot;Abdullah&quot;</span><span class="p">)</span>
+<span class="n">fnk_sezar</span><span class="p">(</span><span class="s2">&quot;Degxoodk&quot;</span><span class="p">,</span><span class="n">sifrelensinMi</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#Degxoodk</span>
+
+<span class="n">fnk_sezar</span><span class="p">(</span><span class="s2">&quot;Abdullah&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15240,7 +15458,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;&lt;]_pgg\\c&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15251,6 +15492,49 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># soru7: cm olarak girilen boy bilgisine bakılarak ideal kilo hesabı yapalım.</span>
 <span class="c1"># Boy bilgisini floata dönüşecek mi diye kontrol edelim.</span>
 <span class="c1">#idealkilo  = boy-100-(boy-150)/4</span>
+
+<span class="k">def</span> <span class="nf">isFloat</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    
+<span class="c1">#-----------------------</span>
+<span class="k">def</span> <span class="nf">fnk_ideal_kilo</span><span class="p">(</span><span class="n">cmBoy</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        cm cinsinden boy bilgisi alır aşağıdaki formule göre ideal kilo hesabı yapar.</span>
+
+<span class="sd">        formul: </span>
+<span class="sd">        idealkilo  = boy-100-(boy-150)/4</span>
+
+<span class="sd">        Parametreler:</span>
+<span class="sd">        -------------------</span>
+<span class="sd">        cmdBoy int: cm cinsinden boy bilgisi</span>
+<span class="sd">        return float: hesaplanan ideal kilo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">isFloat</span><span class="p">(</span><span class="n">cmBoy</span><span class="p">):</span>
+        <span class="n">cmBoy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">cmBoy</span><span class="p">)</span>
+
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="mi">50</span><span class="o">&lt;=</span><span class="n">cmBoy</span><span class="o">&lt;=</span><span class="mi">300</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;Boy bilgisi 50-300 arasında olmalıdır.&quot;</span>
+        
+        <span class="c1">#her şey yoluda ise hesaplama yapabiliriz</span>
+        <span class="n">idealKilo</span> <span class="o">=</span> <span class="n">cmBoy</span><span class="o">-</span><span class="mi">100</span><span class="o">-</span><span class="p">(</span><span class="n">cmBoy</span><span class="o">-</span><span class="mi">150</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span>
+        <span class="k">return</span> <span class="n">idealKilo</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#raise TypeError(&quot;Boy bilgisi sayısal olmalıdır.&quot;)</span>
+        <span class="k">return</span> <span class="s2">&quot;Boy bilgisi sayısal olmalıdır.&quot;</span>
+
+    
+
+<span class="c1">#------------------------</span>
+<span class="n">fnk_ideal_kilo</span><span class="p">(</span><span class="mi">175</span><span class="p">)</span>
+<span class="n">fnk_ideal_kilo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">fnk_ideal_kilo</span><span class="p">(</span><span class="s2">&quot;1.1.1&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15258,7 +15542,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Boy bilgisi sayısal olmalıdır.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15279,6 +15586,29 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">Çorum 19</span>
 <span class="s2">Sakarya 54</span>
 <span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">plakaKodlar</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#whitespacee göre parçalama yapar. hem alt satır hem de boşlukları parçalar.</span>
+<span class="n">plakaKodlar</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#satır sonuna göre parçalama yapar.</span>
+<span class="n">plakaKodlar</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="c1">#newline karakterine göre parçalama yapar. 13 tane var.</span>
+
+<span class="c1">#-------------------</span>
+
+<span class="sd">&quot;&quot;&quot; [p for p in plakaKodlar.splitlines() if p] #if p ile boş olanları almaz.</span>
+<span class="sd">list(filter(bool,plakaKodlar.splitlines())) #boş olanları almaz.</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+<span class="c1">#</span>
+
+<span class="c1">#------------------</span>
+<span class="k">def</span> <span class="nf">fnk_plaka_getir</span><span class="p">(</span><span class="n">plaka</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+    <span class="n">veriPlaka</span><span class="o">=</span><span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span><span class="n">plakaKodlar</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())]</span>
+    <span class="n">dictPlaka</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">veriPlaka</span><span class="p">)</span>
+
+    <span class="c1">#</span>
+    <span class="k">return</span> <span class="n">dictPlaka</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">plaka</span><span class="p">,</span><span class="s2">&quot;Bu plaka mevcut değil.&quot;</span><span class="p">)</span>
+
+<span class="c1">#------------------</span>
+<span class="n">fnk_plaka_getir</span><span class="p">(</span><span class="s2">&quot;34&quot;</span><span class="p">)</span>
+<span class="n">fnk_plaka_getir</span><span class="p">(</span><span class="s2">&quot;99&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15286,7 +15616,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Bu plaka mevcut değil.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15296,6 +15649,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Soru 9:</span>
 <span class="c1"># fonksiyona verilen sayılardan sadece tekrar edenleri bulalım.</span>
+<span class="k">def</span> <span class="nf">tekrarliSayilar</span><span class="p">(</span><span class="o">*</span><span class="n">sayilar</span><span class="p">):</span>
+    <span class="c1">#1.yöntem</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; tekrarEdenler = []</span>
+
+<span class="sd">    for s in sayilar:</span>
+<span class="sd">        if sayilar.count(s)&gt;1:</span>
+<span class="sd">            tekrarEdenler.append(s)</span>
+
+<span class="sd">    return set(tekrarEdenler) &quot;&quot;&quot;</span>
+    
+    <span class="c1">#2.yöntem</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span><span class="n">sayilar</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="p">,</span><span class="n">sayilar</span><span class="p">))</span>
+
+<span class="c1">#----------------------</span>
+<span class="n">tekrarliSayilar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15303,7 +15671,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{2, 9}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15313,11 +15704,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Soru 10:</span>
 <span class="c1"># bir listedeki sayılara bakıp, 1-10 arasındaki sayılardan hangileri eksikmiş bulalım.</span>
+<span class="k">def</span> <span class="nf">eksikSayilar</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span><span class="nb">list</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+    <span class="c1">#1. yöntem: list comprehension</span>
+    <span class="c1">#return [r for r in range(1,11) if not(lst.__contains__(r))] #1-10 arasındaki sayılar lst içerisinde yoksa listeye ekler.</span>
+    
+    <span class="c1">#2. yöntem: filter ile</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)))</span>
+
+
+<span class="c1">#--------------</span>
+<span class="n">eksikSayilar</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[5, 6, 7, 8]</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
